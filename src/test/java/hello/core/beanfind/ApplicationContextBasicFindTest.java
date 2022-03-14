@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ApplicationContextBasicFindTest {
@@ -21,7 +22,7 @@ class ApplicationContextBasicFindTest {
         System.out.println("memberService = " + memberService);
         System.out.println("memberService.getClass() = " + memberService.getClass());
 
-        Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
+        assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
     @Test
@@ -31,7 +32,7 @@ class ApplicationContextBasicFindTest {
         System.out.println("memberService = " + memberService);
         System.out.println("memberService.getClass() = " + memberService.getClass());
 
-        Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
+        assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
     //역할에 의존해야하는데 아래 코드는 구현에 의존하는거라 좋은 코드는 아님
@@ -42,11 +43,11 @@ class ApplicationContextBasicFindTest {
         System.out.println("memberService = " + memberService);
         System.out.println("memberService.getClass() = " + memberService.getClass());
 
-        Assertions.assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
+        assertThat(memberService).isInstanceOf(MemberServiceImpl.class);
     }
 
     @Test
-    @DisplayName("빈 이름으로 조회")
+    @DisplayName("빈 이름으로 조회X")
     void findBeanByNameX(){
         //ac.getBean("xxxx",MemberService.class);
         // xxxx = ac.getBean("xxxx", MemberService.class); //org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'xxxx' available
