@@ -24,7 +24,7 @@ public class AppConfig {
     //call AppConfig.memberRepository
 
     //실제 실행하면
-   //call AppConfig.memberService
+    //call AppConfig.memberService
     //call AppConfig.memberRepository
     //call AppConfig.orderService
 
