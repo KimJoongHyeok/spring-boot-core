@@ -17,7 +17,7 @@ public class AutowiredTest {
     }
 
     static class TestBean {
-        //Member는 스프링 bean이 아님, 따라서 그냥 Autowired를 떄리면 오류
+        //Member는 스프링 bean이 아님 따라서 그냥 Autowired를 떄리면 오류
 
         @Autowired(required = false) //자동 주입할 대상이 없으면 호출이 안됨
         public void setNoBean1(Member noBean1) {
