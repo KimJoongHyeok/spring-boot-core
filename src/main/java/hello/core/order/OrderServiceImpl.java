@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -19,7 +20,7 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository,DiscountPolicy discountPolicy) { //같은 Bean의 타입이 여러개 일 경우 1. 타입으로 조회, 2. 파라미터명으로 조회
+    public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy discountPolicy) { //같은 Bean의 타입이 여러개 일 경우 1. 타입으로 조회, 2. 파라미터명으로 조회
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
